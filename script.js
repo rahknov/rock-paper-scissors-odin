@@ -1,5 +1,8 @@
 console.log("Hello world");
 
+
+let human_score = 0;
+let computer_score = 0;
 function getRandom(num){
     return Math.floor(Math.random() * num); 
 }
@@ -20,45 +23,51 @@ function getHumanChoice(){
 }
 
 
-    ;
-
-
 function playRound(humanChoice, computerChoice){
-    let human_score = 0;
-    let computer_score = 0;
-    
-
     let human_choice = humanChoice.toLowerCase();
     let computer_choice = computerChoice;
     if(human_choice === computer_choice){
-        return `Tie!\n\nYour Score: ${human_score}\nComputer Score: ${computer_score}`;
+        console.log(`Tie!\n\nYour Score: ${human_score}\nComputer Score: ${computer_score}`);
     }else if(human_choice === "rock" && computer_choice === "paper" ){
         ++computer_score;
-        return `Your Score: ${human_score}\nComputer: ${computer_score}\n\nYou lose!, ${computer_choice} beats ${human_choice}`;
+        console.log(`Your Score: ${human_score}\nComputer: ${computer_score}\n\nYou lose!, ${computer_choice} beats ${human_choice}`);
     }else if(human_choice === "paper" && computer_choice === "scissors" ){
         ++computer_score;
-        return `Your Score: ${human_score}\nComputer: ${computer_score}\n\nYou lose!, ${computer_choice} beats ${human_choice}`;
+        console.log(`Your Score: ${human_score}\nComputer: ${computer_score}\n\nYou lose!, ${computer_choice} beats ${human_choice}`);
     }else if(human_choice === "scissors" && computer_choice === "rock" ){
         ++computer_score;
-        return `Your Score: ${human_score}\nComputer: ${computer_score}\n\nYou lose!, ${computer_choice} beats ${human_choice}`;
+        console.log( `Your Score: ${human_score}\nComputer: ${computer_score}\n\nYou lose!, ${computer_choice} beats ${human_choice}`);
     }else if(human_choice === "rock" && computer_choice === "scissors"){
         ++human_score;
-        return `Your Score: ${human_score}\nComputer: ${computer_score}\n\nYou win!, ${human_choice} beats ${computer_choice}`;
+        console.log( `Your Score: ${human_score}\nComputer: ${computer_score}\n\nYou win!, ${human_choice} beats ${computer_choice}`);
     }else if(human_choice === "paper" && computer_choice === "rock"){
         ++human_score;
-        return `Your Score: ${human_score}\nComputer: ${computer_score}\n\nYou win!, ${human_choice} beats ${computer_choice}`;
+        console.log(`Your Score: ${human_score}\nComputer: ${computer_score}\n\nYou win!, ${human_choice} beats ${computer_choice}`);
     }else if(human_choice === "scissors" && computer_choice === "paper"){
         ++human_score;
-        return `Your Score: ${human_score}\nComputer: ${computer_score}\n\nYou win!, ${human_choice} beats ${computer_choice}`;
+        console.log(`Your Score: ${human_score}\nComputer: ${computer_score}\n\nYou win!, ${human_choice} beats ${computer_choice}`);
     }else{
-        return "Bruh";
+        console.log("Bruh");
     }
     
 }
 
 function playGame(){
-    playRound(getHumanChoice(), getComputerChoice());
+    game_count = 0;
+    while(game_count < 5){
+        if(game_count <5){
+        playRound(getHumanChoice(), getComputerChoice());
+        game_count++;
+        }else{
+            game_count = 0;
+            human_score = 0;
+            computer_score = 0;
+        }
+    }   
+    return 0;
 }
+
+
 
 
 
